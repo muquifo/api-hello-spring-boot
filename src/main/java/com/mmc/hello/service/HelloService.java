@@ -1,9 +1,8 @@
 package com.mmc.hello.service;
 
-import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
-import com.mmc.hello.repository.HelloRepository;
-
+@Service
 public class HelloService {
 	
 	private static final String OLA_MUNDO = "Hello World";
