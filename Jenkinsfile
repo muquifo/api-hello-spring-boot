@@ -19,6 +19,15 @@ pipeline {
         
       }
     }
+    stage('DEPLOY') {
+      environment {
+        version = '${build.number}'
+      }
+      steps {
+        echo 'Iniciando Deploy'
+        sh 'docker buil -t app:${build.number} .'
+      }
+    }
   }
   environment {
     agent = 'master'
