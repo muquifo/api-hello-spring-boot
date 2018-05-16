@@ -21,11 +21,11 @@ pipeline {
     }
     stage('DEPLOY') {
       environment {
-        version = '${build.number}'
+        version = '{BUILD_NUMBER,XXX}'
       }
       steps {
         echo 'Iniciando Deploy'
-        sh 'docker buil -t app:${build.number} .'
+        sh 'docker buil -t app:{version} .'
       }
     }
   }
