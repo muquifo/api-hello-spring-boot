@@ -4,13 +4,17 @@ pipeline {
     stage('BUILD') {
       steps {
         echo 'Iniciando Build...'
-        sh 'mvn clean package'
+		withMaven(maven: 'maven', mavenSettingsConfig: 'maven-config') {
+        	sh 'mvn clean package'
+        }
       }
     }
     stage('TEST') {
       steps {
         echo 'Iniciando Testes...'
-        sh 'mvn test'
+        withMaven(maven: 'maven', mavenSettingsConfig: 'maven-config') {
+			sh 'mvn test'
+        }
       }
     }
   }
