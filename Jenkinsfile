@@ -19,15 +19,6 @@ pipeline {
         
       }
     }
-    stage('DEPLOY') {
-      environment {
-        version = '{BUILD_NUMBER,XXX}'
-      }
-      steps {
-        echo 'Iniciando Deploy'
-        sh 'docker build -f Dockerfile -t hello-api .'
-      }
-    }
   }
   environment {
     agent = 'master'
